@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AfService} from '../providers/af.service';
+
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public afService: AfService) { }
 
   ngOnInit() {
+
+  }
+  login() {
+    this.afService.loginWithGoogle();
   }
 
 }
