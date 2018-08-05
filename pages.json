@@ -1,0 +1,24 @@
+{
+  "pages" : {
+    "angular-guide": {
+    "description": "Master Angular ( Angular2+, inklusive Angular6..",
+    "title": "Angular -Guide",
+    "url": "angular-guide"
+    },
+    "responsive-webdesign-guide": {
+      "description": "Alles wissenswerte über RWD",
+      "title": "RWD-Mastering",
+      "url": "css-tricks.com"
+    },
+    "react-guide": {
+      "description": "React complete Guide for Frontend Developers",
+      "title": "React -Guide",
+      "url": "react-with-redux"
+    },
+    "vue-guide": {
+      "description": "Vue JS the awesome JavaScript Framework for building Frontend Applications!",
+      "title": "Vue.js 2",
+      "url": "vuejs2-guide"
+    }
+  }
+}
