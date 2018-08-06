@@ -1,4 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 
 import {AngularFireModule} from 'angularfire2';
@@ -17,6 +18,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import {AdminGuard} from './guards/admin.guard';
 import {SubscriberGuard} from './guards/subscriber.guard';
+import {MaterialModule} from './material.module';
+
 
 @NgModule({
   declarations: [
