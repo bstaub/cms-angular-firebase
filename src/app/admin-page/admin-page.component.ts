@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
+  links = [
+    {
+      name: 'Menus',
+      link: 'menus',
+    },
+    {
+      name: 'Posts',
+      link: 'posts',
+    },
+
+  ];
+
   constructor() { }
 
   ngOnInit() {
