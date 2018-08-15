@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
-import {MenuService} from '../../service/menu.service';
+import {Menu, MenuService} from '../../service/menu.service';
 
 
 @Component({
@@ -9,6 +9,11 @@ import {MenuService} from '../../service/menu.service';
   styleUrls: ['./menus.component.css']
 })
 export class MenusComponent implements OnInit {
+
+  menuDetails: Menu = {
+    title: '',
+    url: ''
+  }
 
   dataSource = new MatTableDataSource();
   displayedColumns = ['id', 'title', 'url'];
@@ -20,6 +25,10 @@ export class MenusComponent implements OnInit {
     this.menus.getMenus().subscribe((data: any) => {
       this.dataSource.data = data;
     });
+  }
+
+  addMenu() {
+    this.menus.addMenus(this.menuDetails);
   }
 
 }

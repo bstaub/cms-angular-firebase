@@ -1,3 +1,13 @@
+<div>
+  <mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="menuDetails.title">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="URL" [(ngModel)]="menuDetails.url">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addMenu()">Add</button>
+</div>
+
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
