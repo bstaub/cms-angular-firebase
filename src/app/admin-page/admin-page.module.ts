@@ -4,6 +4,7 @@ import { MaterialModule} from './material.module';
 import { AdminRoutingModule} from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AdminPageComponent} from './admin-page.component';
+import {NavbarComponent} from './navbar/navbar.component';
 
 
 @NgModule({
@@ -12,6 +13,6 @@ import {AdminPageComponent} from './admin-page.component';
     MaterialModule,
     AdminRoutingModule,
   ],
-  declarations: [DashboardComponent, AdminPageComponent]
+  declarations: [DashboardComponent, AdminPageComponent, NavbarComponent]
 })
 export class AdminPageModule { }
