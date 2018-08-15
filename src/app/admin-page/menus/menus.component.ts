@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material';
+import {MenuService} from '../../service/menu.service';
+
 
 @Component({
   selector: 'app-menus',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenusComponent implements OnInit {
 
-  constructor() { }
+  dataSource = new MatTableDataSource();
+  displayedColumns = ['id', 'title', 'url'];
+
+  constructor(private menus: MenuService) {
+  }
 
   ngOnInit() {
+    this.menus.getMenus().subscribe((data: any) => {
+      this.dataSource.data = data;
+    });
   }
 
 }
