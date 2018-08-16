@@ -7,3 +7,12 @@ table {
   font-size: 14px;
   width: 100%;
 }
+
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.example-container {
+  padding: 20px;
+}
