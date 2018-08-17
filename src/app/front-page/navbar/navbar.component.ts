@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AfService} from '../providers/af.service';
-import {User} from '../providers/user';
+import {AfService} from '../../providers/af.service';
+import {User} from '../../providers/user';
 
 @Component({
   selector: 'app-navbar',
