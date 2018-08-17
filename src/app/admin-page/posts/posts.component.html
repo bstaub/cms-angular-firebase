@@ -1,3 +1,68 @@
-<p>
-  posts works!
-</p>
+<div class="example-container bs-posts">
+
+
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Title" [(ngModel)]="postDetails.title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Select Menu ID" [(ngModel)]="postDetails.menu_id">
+        <mat-option *ngFor="let menu of menuList" [value]="menu.title">
+          {{menu.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Content" [(ngModel)]="postDetails.content"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addPost()">Add</button>
+  </div>
+
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="menu_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Menu_ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.menu_id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="content">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Content </th>
+      <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Aktion</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="openEditDialog(element.id, element.title, element.menu_id, element.content)">
+          <mat-icon aria-label="edit">mode_edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openDialog(element.id)">
+          <mat-icon aria-label="delete">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-elevation-z8"></mat-paginator>
+
+</div>

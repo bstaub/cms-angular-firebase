@@ -10,6 +10,7 @@ import { PostsComponent } from './posts/posts.component';
 import {FormsModule} from '@angular/forms';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { EditMenuComponent } from './edit-menu/edit-menu/edit-menu.component';
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
 
 
 @NgModule({
@@ -19,8 +20,8 @@ import { EditMenuComponent } from './edit-menu/edit-menu/edit-menu.component';
     AdminRoutingModule,
     FormsModule
   ],
-  entryComponents: [ConfirmationDialogComponent, EditMenuComponent],
-  declarations: [DashboardComponent, AdminPageComponent, NavbarComponent, MenusComponent, PostsComponent, ConfirmationDialogComponent, EditMenuComponent]
+  entryComponents: [ConfirmationDialogComponent, EditMenuComponent, EditPostComponent],
+  declarations: [DashboardComponent, AdminPageComponent, NavbarComponent, MenusComponent, PostsComponent, ConfirmationDialogComponent, EditMenuComponent, EditPostComponent]
 
 })
 export class AdminPageModule { }
