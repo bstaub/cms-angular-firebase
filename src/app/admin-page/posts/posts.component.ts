@@ -5,6 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ConfirmationDialogComponent} from '../shared/confirmation-dialog/confirmation-dialog.component';
 import {EditPostComponent} from './edit-post/edit-post.component';
 import {MenuService} from '../../service/menu.service';
+import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-posts',
@@ -21,7 +22,7 @@ export class PostsComponent implements OnInit {
 
   menuList: any;
 
-
+  postForm: FormGroup;
 
   dataSource = new MatTableDataSource();
   displayedColumns = ['id', 'title', 'menu_id', 'content', 'actions'];
@@ -29,7 +30,16 @@ export class PostsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private posts: PostsService, private menus: MenuService, public dialog: MatDialog) {
+  constructor(private posts: PostsService,
+              private menus: MenuService,
+              public dialog: MatDialog,
+              private fb: FormBuilder) {
+    this.postForm = this.fb.group({
+      // title: '',   // <----- the FormControl called "name"
+      title: ['', Validators.required ],
+      menu_id: ['', Validators.required ],
+      content: ['', Validators.required ],
+    });
   }
 
   ngOnInit() {
@@ -47,7 +57,7 @@ export class PostsComponent implements OnInit {
   }
 
   addPost() {
-    this.posts.addPosts(this.postDetails);
+    this.posts.addPosts(this.postForm.value);
   }
 
   applyFilter(filterValue: string) {

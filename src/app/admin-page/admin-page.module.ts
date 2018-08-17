@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { EditMenuComponent } from './edit-menu/edit-menu/edit-menu.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
     CommonModule,
     MaterialModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [ConfirmationDialogComponent, EditMenuComponent, EditPostComponent],
   declarations: [DashboardComponent, AdminPageComponent, NavbarComponent, MenusComponent, PostsComponent, ConfirmationDialogComponent, EditMenuComponent, EditPostComponent]
