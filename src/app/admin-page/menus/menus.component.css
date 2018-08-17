@@ -8,11 +8,18 @@ table {
   width: 100%;
 }
 
-
 th.mat-sort-header-sorted {
   color: black;
 }
 
 .example-container {
-  padding: 20px;
+
+}
+
+.mat-column-actions {
+  width: 80px;
+}
+
+.bs-menus{
+  padding: 0 35px;
 }
