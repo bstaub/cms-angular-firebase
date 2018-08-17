@@ -5,8 +5,12 @@
     <span class="example-spacer"></span>
 
 
+    <div *ngFor="let menu of menuList">
+      <button mat-button routerLink="{{menu.url}}">{{menu.title}}</button>
+    </div>
+
     <button mat-button routerLink="/article">Article Page</button>
-    <button mat-button routerLink="/admin">Admin Page</button>
+
     <div *ngIf="!user">
       <button mat-button (click)="afService.loginWithGoogle()">Login Page</button>
     </div>
@@ -34,9 +38,10 @@
 </mat-toolbar>
 
 
-<div *ngIf="user">
-  <p>Subscriber: {{user.roles?.subscriber ? true : false}}</p>
-  <p>Admin: {{user.roles?.admin ? true:false}}</p>
-</div>
+<!--<div *ngIf="user">-->
+  <!--<p>Subscriber: {{user.roles?.subscriber ? true : false}}</p>-->
+  <!--<p>Admin: {{user.roles?.admin ? true:false}}</p>-->
+<!--</div>-->
+
 <br>
 <br>
