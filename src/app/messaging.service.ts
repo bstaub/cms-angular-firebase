@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs'
 @Injectable()
 export class MessagingService {
 
-  messaging = firebase.messaging()
+  messaging = firebase.messaging();
   currentMessage = new BehaviorSubject(null)
 
   constructor(
