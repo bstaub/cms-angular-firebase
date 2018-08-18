@@ -19,7 +19,7 @@ export class AfService {
     public afs: AngularFirestore
   ) {
     this.user$ = afAuth.authState.pipe(switchMap(user => {   // need pipe for switchMap in Angular6!
-      if(user) {
+      if (user) {
         return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
         return of(null);  // Angular6 without Observable.of, just of with import {of}
@@ -35,20 +35,37 @@ export class AfService {
   }
   updateUser(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const data: User = {  // push back to firebase
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      roles: {
-        subscriber: true,
-        admin: false
-      }
+
+    if (user.email === 'bruno.staub@gmail.com') {
+      const data: User = {  // push back to firebase
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        roles: {
+          subscriber: true,
+          admin: true
+        }
+      };
+      return userRef.set(data, {merge: true});
+    } else {
+      const data: User = {  // push back to firebase
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        roles: {
+          subscriber: true,
+          admin: false
+        }
+      };
+      return userRef.set(data, {merge: true});
     }
-    return userRef.set(data, {merge: true});
+
+
   }
 
-  logout(){
+  logout() {
     this.afAuth.auth.signOut();
   }
 
