@@ -20,7 +20,7 @@ const routes: Routes = [
         component: PagesListComponent
       },
       {
-        path: 'posts',
+        path: 'pages/:url',
         component: PagesComponent
       },
       {

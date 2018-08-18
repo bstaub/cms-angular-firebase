@@ -6,7 +6,7 @@
 
 
     <div *ngFor="let menu of menuList">
-      <button mat-button routerLink="{{menu.url}}">{{menu.title}}</button>
+      <button mat-button routerLink="/pages/{{menu.url}}">{{menu.title}}</button>
     </div>
 
     <button mat-button routerLink="/article">Article Page</button>
