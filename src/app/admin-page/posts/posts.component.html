@@ -49,7 +49,7 @@
 
     <ng-container matColumnDef="content">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Content </th>
-      <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+      <td mat-cell *matCellDef="let element"> {{ (element.content.length>30)?(element.content | slice:0:30)+'...':element.content }} </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
