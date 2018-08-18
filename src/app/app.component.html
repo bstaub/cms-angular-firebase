@@ -1,3 +1,14 @@
 <!--<app-navbar></app-navbar>-->
 <router-outlet></router-outlet>
 
+
+<hr>
+
+Current Message:
+
+<h1>{{ (message | async)?.notification.title }}</h1>
+<img [src]="(message | async)?.notification.icon" width="100px">
+<p>{{ (message | async)?.notification.body }}</p>
+
+{{ message | async | json }}
+

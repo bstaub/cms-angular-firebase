@@ -17,6 +17,7 @@ import {SubscriberGuard} from './guards/subscriber.guard';
 import {MaterialModule} from './material.module';
 import {MenuService} from './service/menu.service';
 import {PostsService} from './service/posts.service';
+import {MessagingService} from './messaging.service';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import {PostsService} from './service/posts.service';
     AngularFirestoreModule,
     MaterialModule
   ],
-  providers: [AfService, AdminGuard, SubscriberGuard, MenuService, PostsService],
+  providers: [AfService, AdminGuard, SubscriberGuard, MenuService, PostsService, MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
