@@ -13,11 +13,13 @@ const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 admin.initializeApp();
 
-exports.fcmSend = functions.database.ref('/messages/{userId}/{messageId}').onCreate(event => {
+exports.fcmSend = functions.database.ref('/messages/{userId}/{messageId}').onWrite(( event ,context) => {
+// exports.fcmSend = functions.database.ref('/messages/{userId}/{messageId}').onCreate(event => {
 
 
   const message = event.after.val();
-  const userId  = event.params.userId;
+  // const userId  = event.params.userId;
+  const userId = 'Zd3HmJCFz7fdeWamtkd9d4XULfJ2';
 
   const payload = {
     notification: {
